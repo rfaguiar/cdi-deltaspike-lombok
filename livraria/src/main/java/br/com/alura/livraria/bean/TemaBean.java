@@ -1,24 +1,20 @@
 package br.com.alura.livraria.bean;
 
+import br.com.livrarialib.jsf.annotation.SessionModel;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
-@Named
-@SessionScoped
+@SessionModel
 public class TemaBean implements Serializable {
 	
 	private static final long serialVersionUID = 3740536135286026768L;
-	
-	private String tema = "vader";
 
-	public String getTema() {
-		return tema;
-	}
-
-	public void setTema(String tema) {
-		this.tema = tema;
-	}
+	@Getter @Setter
+	private String tema = "afterdark";
 	
 	public String[] getTemas() {
 		return new String[]{"afterdark","afternoon","afterwork","aristo",

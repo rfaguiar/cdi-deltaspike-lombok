@@ -1,89 +1,72 @@
 package br.com.alura.livraria.modelo;
 
+import lombok.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
+@Setter
+@Builder
+@ToString
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Livro implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue
 	private Integer id;
-
 	private String titulo;
 	private String isbn;
 	private double preco;
-	@Temporal(TemporalType.DATE)
-	private Calendar dataLancamento = Calendar.getInstance();
+	private Calendar dataLancamento;
 
-	@ManyToMany(fetch=FetchType.EAGER)
-	private List<Autor> autores = new ArrayList<Autor>();
+	private List<Autor> autores;
 
-	public List<Autor> getAutores() {
-		return autores;
-	}
-
-	public void adicionaAutor(Autor autor) {
-		this.autores.add(autor);
-	}
-
-	public Livro() {
-	}
-
+    @Id
+    @GeneratedValue
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getTitulo() {
 		return titulo;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
 	public String getIsbn() {
 		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
 	}
 
 	public double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
-	}
-
+    @Temporal(TemporalType.DATE)
 	public Calendar getDataLancamento() {
 		return dataLancamento;
 	}
 
-	public void setDataLancamento(Calendar dataLancamento) {
-		this.dataLancamento = dataLancamento;
-	}
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name = "Livro_Autor",
+            joinColumns = { @JoinColumn(name = "Livro_id") },
+            inverseJoinColumns = { @JoinColumn(name = "autores_id") })
+    public List<Autor> getAutores() {
+        return autores;
+    }
 
 	public void removeAutor(Autor autor) {
+        if (this.autores == null) this.autores = new ArrayList<>();
 		this.autores.remove(autor);
 	}
+
+    public void adicionaAutor(Autor autor) {
+        if (this.autores == null) this.autores = new ArrayList<>();
+        this.autores.add(autor);
+    }
 
 }

@@ -1,10 +1,12 @@
 package br.com.alura.livraria.bean;
 
-import br.com.alura.livraria.dao.UsuarioDao;
 import br.com.alura.livraria.modelo.Usuario;
+import br.com.alura.livraria.repository.UsuarioRepository;
 import br.com.livrarialib.helper.MessageHelper;
 import br.com.livrarialib.jsf.annotation.ScopeMap;
+import lombok.Getter;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
@@ -15,31 +17,33 @@ import java.util.Map;
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	private Usuario usuario = new Usuario();
 
-	private UsuarioDao usuarioDao;
+	@Getter
+	private Usuario usuario;
+
+	private UsuarioRepository usuarioRepo;
 	private Map<String, Object> sessionMap;
 	private MessageHelper helper;
 
 	@Inject
-    public LoginBean(UsuarioDao usuarioDao,
+    public LoginBean(UsuarioRepository usuarioRepo,
 					 @ScopeMap(ScopeMap.Scope.SESSION) Map<String,Object> sessionMap,
                      MessageHelper helper) {
-        this.usuarioDao = usuarioDao;
+        this.usuarioRepo = usuarioRepo;
 		this.sessionMap = sessionMap;
 		this.helper = helper;
 	}
 
-    public Usuario getUsuario() {
-		return usuario;
-	}
-	
+	@PostConstruct
+	public void init() { this.usuario = new Usuario(); }
+
 	public String efetuaLogin() {
 		System.out.println("fazendo login do usuario " + this.usuario.getEmail());
 
-		boolean existe = usuarioDao.existe(this.usuario);
-		if(existe ) {
+		boolean existe = usuarioRepo
+				.findByEmailEqualAndSenhaEqual(this.usuario.getEmail(), this.usuario.getSenha())
+				.isPresent();
+		if(existe) {
             sessionMap.put("usuarioLogado", this.usuario);
 			return "livro?faces-redirect=true";
 		}

@@ -96,5 +96,6 @@ CREATE TABLE `Usuario` (
 LOCK TABLES `Usuario` WRITE;
 /*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
 INSERT INTO `Usuario` VALUES (1,'nico.steppat@caelum.com.br','12345');
+INSERT INTO `Usuario` VALUES (2,'admin@admin.com','admin');
 /*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -109,7 +109,7 @@
 				</p:column>					
 				
 				<p:column headerText="Remover">
-					<p:commandButton update="@form" process="@this" value="remover" actionListener="#{livroBean.remover(livro)}" icon="fa fa-fw fa-remove" />
+					<p:commandButton update="@form :formLivro" process="@this" value="remover" actionListener="#{livroBean.remover(livro)}" icon="fa fa-fw fa-remove" />
 				</p:column>	
 			</p:dataTable>
 			</h:form>			

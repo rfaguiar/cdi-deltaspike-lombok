@@ -3,6 +3,7 @@ package br.com.livrarialib.factory;
 import br.com.livrarialib.configuration.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
@@ -12,6 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.Properties;
 
+@ApplicationScoped
 public class JPAFactory {
 
 	private static EntityManagerFactory emf;
