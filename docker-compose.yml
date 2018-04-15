@@ -1,0 +1,38 @@
+version: '3'
+
+networks: 
+  tomcat-network:
+    driver: bridge
+
+services:
+  tomcat8:
+    build:
+      context: ./tomcat8
+      dockerfile: /Dockerfile
+    ports:
+      - "8080:8080"
+      - "8000:8000" #remote debug port
+    image: rfaguiar/tomcat8
+    container_name: tomcat8
+    volumes:
+      - ./webapps:/usr/local/tomcat/webapps
+    networks:
+      - tomcat-network
+    depends_on: 
+      - db-mysql
+    #conecta ao containers do banco pela url http://database
+    links:
+      - "db-mysql:database"
+
+  db-mysql:
+    image: mysql:5.6
+    container_name: db-mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./banco:/var/lib/mysql
+    networks:
+      - tomcat-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=root
