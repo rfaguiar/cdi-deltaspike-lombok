@@ -83,7 +83,7 @@ public class LivroBean implements Serializable {
 		}
 
         livroRepo.save(this.livro);
-        this.livros = livroRepo.findAll();
+        this.livros = livroRepo.findAllOrderByDataLancamentoDesc();
 		this.livro = this.criarLivro();
 	}
 

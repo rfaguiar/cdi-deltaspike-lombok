@@ -14,7 +14,7 @@
 
 		<ui:define name="conteudo">
 		
-			<p:messages globalOnly="true" />
+			<p:messages id="msg-alert" globalOnly="true" />
 		
 			<h:form id="login">
 				<p:fieldset legend="Login">
@@ -30,7 +30,7 @@
 						<p:password id="senha" value="#{loginBean.usuario.senha}" feedback="true"  required="true" />
 						<p:message for="senha" id="messageSenha" />
 
-						<p:commandButton value="Efetue Login" action="#{loginBean.efetuaLogin}" update="@form" process="@form" />
+						<p:commandButton id="btnEfetuaLogin" value="Efetue Login" action="#{loginBean.efetuaLogin}" update="@form" process="@form" />
 					</h:panelGrid>
 				</p:fieldset>
 			</h:form>
