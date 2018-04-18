@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -jar livraria/target/dependency/webapp-runner.jar --port $PORT livraria/target/*.war
+web: java $JAVA_OPTS -jar livraria/target/dependency/webapp-runner.jar --port $PORT livraria/target/livraria.war

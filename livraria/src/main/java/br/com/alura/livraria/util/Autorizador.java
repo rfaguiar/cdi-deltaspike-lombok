@@ -10,9 +10,10 @@ import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.inject.Inject;
+import java.io.Serializable;
 import java.util.Map;
 
-public class Autorizador {
+public class Autorizador implements Serializable {
 
 	@Inject
 	private FacesContext context;
