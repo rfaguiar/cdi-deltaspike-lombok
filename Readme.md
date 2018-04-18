@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rfaguiar/cdi-deltaspike-lombok.svg?branch=master)](https://travis-ci.org/rfaguiar/cdi-deltaspike-lombok)
+
 criar pastas:
     banco
     webapps
