@@ -18,6 +18,10 @@ public class ConfigurationFactory {
     public Properties getProperties() throws IOException {
         Properties properties = new Properties();
         String configDb = System.getenv("CONFIG-BD");
+        System.out.println("############################ CONFIG-BD ###################");
+        System.out.println(configDb);
+        System.out.println();
+        System.out.println();
 
         if (configDb == null) {
             InputStream inputStream = ConfigurationFactory.class.getResourceAsStream("livraria-dev");
@@ -37,7 +41,10 @@ public class ConfigurationFactory {
             properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
             properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         }
-
+        System.out.println("############################ properties bd ###################");
+        System.out.println(properties);
+        System.out.println();
+        System.out.println();
         return properties;
     }
 }
