@@ -38,8 +38,6 @@ public class ConfigurationFactory {
             properties.put("javax.persistence.jdbc.url", jdbcUrl);
             properties.put("javax.persistence.jdbc.user", userName);
             properties.put("javax.persistence.jdbc.password", password);
-            properties.put("javax.persistence.jdbc.driver", "org.postgresql.Driver");
-            properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         }
         System.out.println("############################ properties bd ###################");
         System.out.println(properties);
