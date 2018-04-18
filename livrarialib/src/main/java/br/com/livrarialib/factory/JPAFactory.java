@@ -34,6 +34,6 @@ public class JPAFactory {
 
 	@PostConstruct
 	public void loadEMF(){
-		emf = Persistence.createEntityManagerFactory(properties.getProperty("livraria.lib.persistenceUnit"));
+		emf = Persistence.createEntityManagerFactory(properties.getProperty("livraria.lib.persistenceUnit"), properties);
 	}
 }

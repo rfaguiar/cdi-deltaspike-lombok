@@ -28,9 +28,6 @@
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://${env.MYSQL_DB_HOST}:${env.MYSQL_DB_PORT}/${env.MYSQL_SCHEMA}"/>
-            <property name="javax.persistence.jdbc.user" value="${env.MYSQL_DB_USERNAME}"/>
-            <property name="javax.persistence.jdbc.password" value="${env.MYSQL_DB_PASSWORD}"/>
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
