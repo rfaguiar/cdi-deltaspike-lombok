@@ -14,7 +14,7 @@ public class TemaBean implements Serializable {
 	private static final long serialVersionUID = 3740536135286026768L;
 
 	@Getter @Setter
-	private String tema = "afterdark";
+	private String tema = "vader";
 	
 	public String[] getTemas() {
 		return new String[]{"afterdark","afternoon","afterwork","aristo",
