@@ -1,6 +1,6 @@
-package br.com.alura.livraria.tests;
+package br.com.livraria.tests;
 
-import br.com.alura.livraria.pages.LoginPage;
+import br.com.livraria.pages.LoginPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

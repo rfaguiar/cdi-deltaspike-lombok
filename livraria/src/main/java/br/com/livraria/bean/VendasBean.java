@@ -1,7 +1,7 @@
-package br.com.alura.livraria.bean;
+package br.com.livraria.bean;
 
-import br.com.alura.livraria.modelo.Livro;
-import br.com.alura.livraria.modelo.Venda;
+import br.com.livraria.modelo.Livro;
+import br.com.livraria.modelo.Venda;
 import br.com.livrarialib.dao.DAO;
 import br.com.livrarialib.jsf.annotation.ViewModel;
 import org.primefaces.model.chart.BarChartModel;

@@ -18,14 +18,8 @@ public class ConfigurationFactory {
     public Properties getProperties() throws IOException {
         Properties properties = new Properties();
         String configDb = System.getenv("CONFIG-BD");
-        System.out.println("############################ CONFIG-BD ###################");
-        System.out.println(configDb);
-        System.out.println();
-        System.out.println();
-
         if (configDb == null) {
-            InputStream inputStream = ConfigurationFactory.class.getResourceAsStream("livraria-dev");
-            properties.load(inputStream);
+            properties.put("livraria.lib.persistenceUnit", "livraria-dev");
         } else if ("prod".equals(configDb)) {
 
             properties.put("livraria.lib.persistenceUnit", "livraria-heroku");
@@ -39,10 +33,6 @@ public class ConfigurationFactory {
             properties.put("javax.persistence.jdbc.user", userName);
             properties.put("javax.persistence.jdbc.password", password);
         }
-        System.out.println("############################ properties bd ###################");
-        System.out.println(properties);
-        System.out.println();
-        System.out.println();
         return properties;
     }
 }

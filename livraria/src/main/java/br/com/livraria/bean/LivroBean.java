@@ -1,14 +1,13 @@
-package br.com.alura.livraria.bean;
+package br.com.livraria.bean;
 
-import br.com.alura.livraria.modelo.Autor;
-import br.com.alura.livraria.modelo.Livro;
-import br.com.alura.livraria.repository.AutorRepository;
-import br.com.alura.livraria.repository.LivroRepository;
+import br.com.livraria.modelo.Autor;
+import br.com.livraria.modelo.Livro;
+import br.com.livraria.repository.AutorRepository;
+import br.com.livraria.repository.LivroRepository;
 import br.com.livrarialib.helper.MessageHelper;
 import br.com.livrarialib.jsf.annotation.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.deltaspike.jpa.api.transaction.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;

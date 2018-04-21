@@ -1,4 +1,4 @@
-package br.com.alura.livraria.util;
+package br.com.livraria.util;
 
 import br.com.livrarialib.jsf.annotation.Before;
 import br.com.livrarialib.jsf.annotation.Phase;

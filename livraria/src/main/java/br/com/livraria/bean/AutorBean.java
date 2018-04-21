@@ -1,6 +1,6 @@
-package br.com.alura.livraria.bean;
+package br.com.livraria.bean;
 
-import br.com.alura.livraria.modelo.Autor;
+import br.com.livraria.modelo.Autor;
 import br.com.livrarialib.dao.DAO;
 import br.com.livrarialib.tx.annotation.Transacional;
 

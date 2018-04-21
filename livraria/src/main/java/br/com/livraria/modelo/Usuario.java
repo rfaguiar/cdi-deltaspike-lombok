@@ -1,11 +1,12 @@
-package br.com.alura.livraria.modelo;
+package br.com.livraria.modelo;
 
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Setter
 @ToString
@@ -13,14 +14,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Autor implements Serializable {
+public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	private String nome;
 	private String email;
-	private List<Livro> livros;
+	private String senha;
 
     @Id
     @GeneratedValue
@@ -32,10 +32,10 @@ public class Autor implements Serializable {
 		return email;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getSenha() {
+		return senha;
 	}
+	
+	
 
-	@ManyToMany(fetch = FetchType.LAZY, mappedBy = "autores")
-    public List<Livro> getLivros() { return livros; }
 }

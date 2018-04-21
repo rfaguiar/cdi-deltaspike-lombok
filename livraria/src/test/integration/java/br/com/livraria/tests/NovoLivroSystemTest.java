@@ -1,16 +1,12 @@
-package br.com.alura.livraria.tests;
+package br.com.livraria.tests;
 
-import br.com.alura.livraria.pages.LivroPage;
-import br.com.alura.livraria.pages.LoginPage;
+import br.com.livraria.pages.LivroPage;
+import br.com.livraria.pages.LoginPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;

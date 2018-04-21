@@ -1,6 +1,6 @@
-package br.com.alura.livraria.repository;
+package br.com.livraria.repository;
 
-import br.com.alura.livraria.modelo.Autor;
+import br.com.livraria.modelo.Autor;
 import org.apache.deltaspike.data.api.EntityRepository;
 import org.apache.deltaspike.data.api.Query;
 import org.apache.deltaspike.data.api.Repository;

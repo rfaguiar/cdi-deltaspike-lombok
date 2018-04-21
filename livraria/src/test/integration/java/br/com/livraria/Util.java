@@ -1,4 +1,4 @@
-package br.com.alura.livraria;
+package br.com.livraria;
 
 public class Util {
     public static String getUrlBase() {

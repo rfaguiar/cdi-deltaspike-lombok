@@ -1,4 +1,4 @@
-package br.com.alura.livraria.bean;
+package br.com.livraria.bean;
 
 import br.com.livrarialib.jsf.annotation.SessionModel;
 import lombok.Getter;

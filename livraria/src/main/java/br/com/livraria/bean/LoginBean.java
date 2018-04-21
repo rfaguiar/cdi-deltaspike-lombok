@@ -1,7 +1,7 @@
-package br.com.alura.livraria.bean;
+package br.com.livraria.bean;
 
-import br.com.alura.livraria.modelo.Usuario;
-import br.com.alura.livraria.repository.UsuarioRepository;
+import br.com.livraria.modelo.Usuario;
+import br.com.livraria.repository.UsuarioRepository;
 import br.com.livrarialib.helper.MessageHelper;
 import br.com.livrarialib.jsf.annotation.ScopeMap;
 import lombok.Getter;

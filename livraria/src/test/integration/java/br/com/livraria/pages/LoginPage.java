@@ -1,6 +1,6 @@
-package br.com.alura.livraria.pages;
+package br.com.livraria.pages;
 
-import br.com.alura.livraria.Util;
+import br.com.livraria.Util;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,6 +1,6 @@
-package br.com.alura.livraria.util;
+package br.com.livraria.util;
 
-import br.com.alura.livraria.modelo.Usuario;
+import br.com.livraria.modelo.Usuario;
 import br.com.livrarialib.jsf.annotation.After;
 import br.com.livrarialib.jsf.annotation.Phase;
 import br.com.livrarialib.jsf.annotation.ScopeMap;

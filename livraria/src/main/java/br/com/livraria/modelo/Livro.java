@@ -1,4 +1,4 @@
-package br.com.alura.livraria.modelo;
+package br.com.livraria.modelo;
 
 import lombok.*;
 
