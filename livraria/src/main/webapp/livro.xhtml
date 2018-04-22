@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -51,12 +50,12 @@
 				<p:fieldset legend="Dados do Autor">
 
 					<p:panelGrid columns="4">
-						<p:outputLabel value="Selecione Autor:" for="autor" />
-						<p:selectOneMenu value="#{livroBean.autorId}" id="autor">
+						<p:outputLabel value="Selecione Autor:" for="autor_select" />
+						<p:selectOneMenu value="#{livroBean.autorId}" id="autor_select">
 							<f:selectItems value="#{livroBean.autores}" var="autor" itemLabel="#{autor.nome}" itemValue="#{autor.id}" />
 						</p:selectOneMenu>
-						<p:commandButton value="Gravar Autor" action="#{livroBean.gravarAutor}" 
-								process="@this autor" update="tabelaAutores">
+						<p:commandButton id="btnGravarAutor" value="Gravar Autor" action="#{livroBean.gravarAutor}"
+								process="@this autor_select" update="tabelaAutores">
 						</p:commandButton>
 		
 						<p:commandLink value="ou cadastrar novo autor" action="#{livroBean.formAutor}" immediate="true" 
@@ -74,7 +73,7 @@
 				</p:fieldset>
 					<br />
 				<p:fieldset style="text-align:center;">
-					<p:commandButton value="Gravar Livro" action="#{livroBean.gravar}" process="@form" 
+					<p:commandButton id="btnFravarLivro" value="Gravar Livro" action="#{livroBean.gravar}" process="@form"
 							update="@form :formTabelaLivros:tabelaLivros"  />
 				</p:fieldset>
 			</h:form>
@@ -105,11 +104,11 @@
 				</p:column>
 				
 				<p:column headerText="Alterar">
-					<p:commandButton update=":formLivro" process="@this" value="alterar" actionListener="#{livroBean.carregar(livro)}" icon="fa fa-fw fa-edit" />
+					<p:commandButton id="btnAlterar" update=":formLivro" process="@this" value="alterar" actionListener="#{livroBean.carregar(livro)}" icon="fa fa-fw fa-edit" />
 				</p:column>					
 				
 				<p:column headerText="Remover">
-					<p:commandButton update="@form :formLivro" process="@this" value="remover" actionListener="#{livroBean.remover(livro)}" icon="fa fa-fw fa-remove" />
+					<p:commandButton id="btnDeletar" update="@form :formLivro" process="@this" value="remover" actionListener="#{livroBean.remover(livro)}" icon="fa fa-fw fa-remove" />
 				</p:column>	
 			</p:dataTable>
 			</h:form>			

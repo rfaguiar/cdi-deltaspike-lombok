@@ -17,7 +17,7 @@ public class LoginPage {
 
 
     public LoginPage visita() {
-        driver.get(Util.getUrlBase() + "/login.xhtml");
+        driver.get(Util.URL_BASE+ "/login.xhtml");
         return this;
     }
 
@@ -47,7 +47,7 @@ public class LoginPage {
                         .textToBePresentInElement(By.xpath("//*[@id=\"login:messageEmail\"]/span[2]"), "Email: Validation Error: Value is required."));
     }
 
-    public boolean validacaoDeSenhaObrigatorio() {login:
+    public boolean validacaoDeSenhaObrigatorio() {
     //aguarda ajax executar
     return new WebDriverWait(driver, 10)
             .until(ExpectedConditions

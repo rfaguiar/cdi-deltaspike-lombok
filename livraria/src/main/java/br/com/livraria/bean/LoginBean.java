@@ -12,6 +12,7 @@ import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.Map;
+import java.util.Optional;
 
 @Model
 public class LoginBean implements Serializable {
@@ -40,11 +41,10 @@ public class LoginBean implements Serializable {
 	public String efetuaLogin() {
 		System.out.println("fazendo login do usuario " + this.usuario.getEmail());
 
-		boolean existe = usuarioRepo
-				.findByEmailEqualAndSenhaEqual(this.usuario.getEmail(), this.usuario.getSenha())
-				.isPresent();
-		if(existe) {
-            sessionMap.put("usuarioLogado", this.usuario);
+		Optional<Usuario> usuario = usuarioRepo
+				.findByEmailEqualAndSenhaEqual(this.usuario.getEmail(), this.usuario.getSenha());
+		if(usuario.isPresent()) {
+            sessionMap.put("usuarioLogado", usuario.get());
 			return "livro?faces-redirect=true";
 		}
 

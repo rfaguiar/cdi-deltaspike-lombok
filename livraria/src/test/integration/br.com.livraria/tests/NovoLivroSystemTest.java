@@ -42,11 +42,26 @@ public class NovoLivroSystemTest {
 
     @Test
     public void deveDeletarUmLivro() {
-        livroPage.removerLivro("TituloeTeste");
+        livroPage.cadastrarLivro("TituloeTesteRemover", "1234567892354", 10.0, "Sergio Lopes")
+                .removerLivro("TituloeTesteRemover");
 
         boolean livroAdicionado = livroPage
-                .validarLivro("TituloeTeste", "123-4-56-789235-4", 10.0, "Sergio Lopes");
+                .existe("TituloeTesteRemover");
 
         assertFalse(livroAdicionado);
+    }
+
+    @Test
+    public void alterarLivro() {
+
+        livroPage.selecionarLivro("TituloeTeste")
+                .alterarLivroPara("TituloeTeste", "TituloeAlterado", "123-4-56-789235-4", 10.0, "Sergio Lopes");
+
+        boolean livroAdicionado = livroPage
+                .validarLivro("TituloeAlterado", "123-4-56-789235-4", 10.0, "Sergio Lopes");
+
+        assertTrue(livroAdicionado);
+
+        livroPage.removerLivro("TituloeAlterado");
     }
 }
