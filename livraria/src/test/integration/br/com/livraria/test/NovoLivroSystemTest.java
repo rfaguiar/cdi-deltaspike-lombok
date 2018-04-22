@@ -1,4 +1,4 @@
-package br.com.livraria.tests;
+package br.com.livraria.test;
 
 import br.com.livraria.pages.LivroPage;
 import br.com.livraria.pages.LoginPage;
@@ -20,24 +20,24 @@ public class NovoLivroSystemTest {
     public void init() {
         driver = new ChromeDriver();
         livroPage = new LoginPage(driver)
-                .logar()
-                .cadastrarLivro("TituloeTeste", "1234567892354", 10.0, "Sergio Lopes");
+                .logar();
     }
 
     @After
     public void end() {
-        livroPage.removerLivro("TituloeTeste");
         driver.close();
     }
 
     @Test
     public void deveCadastrarUmNovoLivro() {
 
-
         boolean livroAdicionado = livroPage
+                .cadastrarLivro("TituloeTeste", "1234567892354", 10.0, "Sergio Lopes")
                 .validarLivro("TituloeTeste", "123-4-56-789235-4", 10.0, "Sergio Lopes");
 
         assertTrue(livroAdicionado);
+
+        livroPage.removerLivro("TituloeTeste");
     }
 
     @Test
@@ -51,11 +51,13 @@ public class NovoLivroSystemTest {
         assertFalse(livroAdicionado);
     }
 
-    @Test
+//    @Test
     public void alterarLivro() {
 
-        livroPage.selecionarLivro("TituloeTeste")
-                .alterarLivroPara("TituloeTeste", "TituloeAlterado", "123-4-56-789235-4", 10.0, "Sergio Lopes");
+        livroPage.cadastrarLivro("TituloeTeste", "1234567892354", 10.0, "Sergio Lopes");
+
+        livroPage = new LoginPage(driver).logar()
+                .alterarLivro("TituloeTeste", "TituloeAlterado", "123-4-56-789235-4", 10.0, "Sergio Lopes");
 
         boolean livroAdicionado = livroPage
                 .validarLivro("TituloeAlterado", "123-4-56-789235-4", 10.0, "Sergio Lopes");

@@ -20,11 +20,11 @@
 			    
 			    <p:growl id="messages" showDetail="true" autoUpdate="true"/>
 			
-				<h:form  rendered="#{usuarioLogado != null}">
-				    <p:menuButton value="Menu">
-				        <p:menuitem value="Livros" action="livro?faces-redirect=true"  icon="fa fa-fw fa-pencil-square-o"/>
-				        <p:menuitem value="Autores" action="autor?faces-redirect=true" icon="fa fa-fw- fa-pencil-square-o"/>
-				        <p:menuitem value="Vendas" action="vendas?faces-redirect=true" icon="fa fa-fw fa-bar-chart"/>
+				<h:form id="menuForm" rendered="#{usuarioLogado != null}">
+				    <p:menuButton id="btnMenu" value="Menu">
+				        <p:menuitem id="btnLivros" value="Livros" action="livro?faces-redirect=true"  icon="fa fa-fw fa-pencil-square-o"/>
+				        <p:menuitem id="btnAutores" value="Autores" action="autor?faces-redirect=true" icon="fa fa-fw- fa-pencil-square-o"/>
+				        <p:menuitem id="btnVendas" value="Vendas" action="vendas?faces-redirect=true" icon="fa fa-fw fa-bar-chart"/>
 				        <p:separator />
 				        <p:menuitem value="Logout" action="#{loginBean.deslogar}" icon="fa fa-fw fa-sign-out"/>
 				    </p:menuButton>

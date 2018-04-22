@@ -1,4 +1,4 @@
-package br.com.livraria.tests;
+package br.com.livraria.test;
 
 import br.com.livraria.pages.LoginPage;
 import org.junit.After;

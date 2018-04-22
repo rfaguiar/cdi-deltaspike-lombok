@@ -2,7 +2,7 @@ package br.com.livraria.bean;
 
 import br.com.livraria.modelo.Livro;
 import br.com.livraria.modelo.Venda;
-import br.com.livrarialib.dao.DAO;
+import br.com.livraria.repository.LivroRepository;
 import br.com.livrarialib.jsf.annotation.ViewModel;
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
@@ -19,11 +19,11 @@ public class VendasBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	private DAO<Livro, Integer> livroDAO;
+	private LivroRepository livroRepo;
 
 	@Inject
-    public VendasBean(DAO<Livro, Integer> livroDAO) {
-        this.livroDAO = livroDAO;
+    public VendasBean(LivroRepository livroRepo) {
+        this.livroRepo = livroRepo;
     }
 
     public BarChartModel getVendasModel() {
@@ -55,8 +55,8 @@ public class VendasBean implements Serializable{
 
 	public List<Venda> getVendas(long seed) {
 
-		List<Livro> livros = livroDAO.listaTodos();
-		List<Venda> vendas = new ArrayList<Venda>();
+		List<Livro> livros = livroRepo.findAll();
+		List<Venda> vendas = new ArrayList<>();
 
 		Random random = new Random(seed);
 

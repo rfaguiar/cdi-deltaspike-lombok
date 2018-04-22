@@ -4,10 +4,11 @@ import br.com.livraria.modelo.Usuario;
 import org.apache.deltaspike.data.api.EntityRepository;
 import org.apache.deltaspike.data.api.Repository;
 
+import java.io.Serializable;
 import java.util.Optional;
 
 @Repository
-public interface UsuarioRepository extends EntityRepository<Usuario, Integer> {
+public interface UsuarioRepository extends EntityRepository<Usuario, Integer>, Serializable {
 
     /*
         Metodo equivalente a query

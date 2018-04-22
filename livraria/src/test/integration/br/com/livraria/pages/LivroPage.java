@@ -34,7 +34,7 @@ public class LivroPage {
         WebElement txtValor = driver.findElement(By.name("formLivro:preco"));
         Select cbAutores = new Select(driver.findElement(By.id("formLivro:autor_select_input")));
         WebElement btnAddAutor = driver.findElement(By.id("formLivro:btnGravarAutor"));
-        WebElement btnAdicionarLivro = driver.findElement(By.id("formLivro:btnFravarLivro"));
+        WebElement btnAdicionarLivro = driver.findElement(By.id("formLivro:btnGravarLivro"));
 
         txtNome.clear();
         txtNome.sendKeys(nome);
@@ -50,10 +50,10 @@ public class LivroPage {
     }
 
     public boolean validarLivro(String nome, String isbn, double valor, String autor) {
-
+        int linha = this.procurarLinhaPeloNome(nome);
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions
-                        .textToBePresentInElement(By.xpath("//*[@id=\"formTabelaLivros:tabelaLivros_data\"]/tr[1]/td[1]"), nome));
+                        .textToBePresentInElement(By.xpath("//*[@id=\"formTabelaLivros:tabelaLivros_data\"]/tr[" + linha + "]/td[1]"), nome));
 
         return driver.getPageSource().contains(isbn);
     }
@@ -62,40 +62,45 @@ public class LivroPage {
         return driver.getPageSource().contentEquals(nome);
     }
 
-    public void removerLivro(String nome) {
+    public LivroPage removerLivro(String nome) {
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions
                         .textToBePresentInElement(By.xpath("//*[@id=\"formTabelaLivros:tabelaLivros_data\"]/tr[1]/td[1]"), nome));
 
-        int id = this.procurarLinhaPeloNome(nome);
-        WebElement btnRemover = driver.findElement(By.id("formTabelaLivros:tabelaLivros:" + id + ":btnDeletar"));
+        int linha = this.procurarLinhaPeloNome(nome);
+        WebElement btnRemover = driver.findElement(By.id("formTabelaLivros:tabelaLivros:" + linha + ":btnDeletar"));
         btnRemover.click();
+        return this;
 
     }
 
     public LivroPage selecionarLivro(String nome) {
 
-        new WebDriverWait(driver, 10)
-                .until(ExpectedConditions
-                .textToBePresentInElement(By.xpath("//*[@id=\"formTabelaLivros:tabelaLivros_data\"]/tr[1]/td[1]"), nome));
-        int id = this.procurarLinhaPeloNome(nome);
-        WebElement btnAlterar = driver.findElement(By.id("formTabelaLivros:tabelaLivros:" + id + ":btnAlterar"));
-        btnAlterar.click();
+
         return this;
     }
 
-    public LivroPage alterarLivroPara(String antigo, String nome, String isbn, double valor, String autor) {
+    public LivroPage alterarLivro(String antigo, String nome, String isbn, double valor, String autor) {
 
+        int linha = this.procurarLinhaPeloNome(antigo);
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions
-                        .textToBePresentInElement(By.id("formLivro:titulo"), antigo));
+                        .textToBePresentInElement(By.xpath("//*[@id=\"formTabelaLivros:tabelaLivros_data\"]/tr[" + linha + "]/td[1]"), antigo));
+
+        WebElement btnAlterar = driver.findElement(By.id("formTabelaLivros:tabelaLivros:" + linha + ":btnAlterar"));
+        btnAlterar.click();
+
+//        new WebDriverWait(driver, 10)
+//                .until(ExpectedConditions
+//                        .textToBePresentInElement(By.id("formLivro:titulo"), antigo));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         WebElement txtNome = driver.findElement(By.name("formLivro:titulo"));
         WebElement txtIsbn = driver.findElement(By.name("formLivro:isbn"));
         WebElement txtValor = driver.findElement(By.name("formLivro:preco"));
         Select cbAutores = new Select(driver.findElement(By.id("formLivro:autor_select_input")));
         WebElement btnAddAutor = driver.findElement(By.id("formLivro:btnGravarAutor"));
-        WebElement btnAdicionarLivro = driver.findElement(By.id("formLivro:btnFravarLivro"));
+        WebElement btnAdicionarLivro = driver.findElement(By.id("formLivro:btnGravarLivro"));
 
         txtNome.clear();
         txtNome.sendKeys(nome);
@@ -116,10 +121,19 @@ public class LivroPage {
             WebElement t = tr.get(i);
             String texto = t.getText();
             if (texto.contains(nome)) {
-                id = i;
+                id = i + 1;
                 break;
             }
         }
         return id;
+    }
+
+    public AutorPage navegarAutores() {
+
+        WebElement btnMenu = driver.findElement(By.id("menuForm:btnMenu_button"));
+        WebElement btnAutores = driver.findElement(By.id("menuForm:btnAutores"));
+        btnMenu.click();
+        btnAutores.click();
+        return new AutorPage(driver);
     }
 }
