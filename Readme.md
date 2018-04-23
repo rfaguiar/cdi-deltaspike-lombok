@@ -53,9 +53,9 @@
     > MYSQL_DB_USERNAME  
     > MYSQL_DB_PASSWORD  
 
-#### Aplicação na cloud do heroku pode estar dormindo, tenha paciência:
-[link para aplicação no heroku!](https://livraria-app1.herokuapp.com/login.xhtml)
+#### Aplicação na cloud do heroku pode estar dormindo, tenha paciência:  
+[link para aplicação no heroku!](https://livraria-app1.herokuapp.com/login.xhtml)  
 
-acesso: admin@admin.com
-pass: admin
+acesso: admin@admin.com  
+pass: admin  
 
