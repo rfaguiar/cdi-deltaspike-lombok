@@ -38,4 +38,7 @@
 	 </resource-env-ref-type>
 	</resource-env-ref>
 
+	<welcome-file-list>
+		<welcome-file>login.xhtml</welcome-file>
+	</welcome-file-list>
 </web-app>
