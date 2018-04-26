@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/rfaguiar/cdi-deltaspike-lombok.svg?branch=master)](https://travis-ci.org/rfaguiar/cdi-deltaspike-lombok)
+[![Build Status](https://travis-ci.org/rfaguiar/cdi-deltaspike-lombok.svg?branch=master)](https://travis-ci.org/rfaguiar/cdi-deltaspike-lombok) [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=org.test.module%3Amodules-root&metric=alert_status)](https://sonarcloud.io/dashboard?id=org.test.module%3Amodules-root) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=org.test.module%3Amodules-root&metric=coverage)](https://sonarcloud.io/component_measures?id=org.test.module%3Amodules-root&metric=coverage)  
 # Tecnologias: Java 8, Tomcat8, Docker 17ce, DockerCompose 1.15, Maven 3, Hibernate 4, DeltaSpike 1.8, Lombok 1.16, JSF 2.2, MySQL 5.1, Primefaces 5.3, CDI-Weld 2.3, Junit 4, Selenium 3, Powermock 1.7
 * Qualidade/Cobertura de codigo com SonnarLint/jacoco
 * Testes unitários TDD com Junit e Mocks
