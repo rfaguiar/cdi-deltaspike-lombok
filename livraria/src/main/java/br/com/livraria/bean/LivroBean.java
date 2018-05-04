@@ -12,8 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
 import javax.faces.validator.ValidatorException;
 import javax.inject.Inject;
 import java.io.Serializable;
@@ -110,8 +108,7 @@ public class LivroBean implements Serializable {
 		return "autor?faces-redirect=true";
 	}
 
-	public void comecaComDigitoUm(FacesContext fc, UIComponent component,
-			Object value) throws ValidatorException {
+	public void comecaComDigitoUm(Object value) {
 
 		String valor = value.toString();
 		if (!valor.startsWith("1")) {

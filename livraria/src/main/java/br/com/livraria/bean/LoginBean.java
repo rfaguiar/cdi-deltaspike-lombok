@@ -11,15 +11,12 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
-import java.io.Serializable;
 import java.util.Map;
 import java.util.Optional;
 
 @Model
 @Slf4j
-public class LoginBean implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class LoginBean {
 
 	@Getter
 	private Usuario usuario;
@@ -42,10 +39,10 @@ public class LoginBean implements Serializable {
 
 	public String efetuaLogin() {
         log.debug("fazendo login do usuario" + this.usuario.getEmail());
-		Optional<Usuario> usuario = usuarioRepo
+		Optional<Usuario> usuarioOptional = usuarioRepo
 				.findByEmailEqualAndSenhaEqual(this.usuario.getEmail(), this.usuario.getSenha());
-		if(usuario.isPresent()) {
-            sessionMap.put("usuarioLogado", usuario.get());
+		if(usuarioOptional.isPresent()) {
+            sessionMap.put("usuarioLogado", usuarioOptional.get());
 			return "livro?faces-redirect=true";
 		}
 

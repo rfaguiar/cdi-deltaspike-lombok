@@ -14,5 +14,5 @@ public interface UsuarioRepository extends EntityRepository<Usuario, Integer>, S
         Metodo equivalente a query
         select u from Usuario u where u.email = :pEmail and u.senha = :pSenha
      */
-    Optional<Usuario> findByEmailEqualAndSenhaEqual(String name, String Senha);
+    Optional<Usuario> findByEmailEqualAndSenhaEqual(String name, String senha);
 }
