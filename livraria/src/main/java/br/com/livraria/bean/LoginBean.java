@@ -5,6 +5,7 @@ import br.com.livraria.repository.UsuarioRepository;
 import br.com.livrarialib.helper.MessageHelper;
 import br.com.livrarialib.jsf.annotation.ScopeMap;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Model
+@Slf4j
 public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -39,8 +41,7 @@ public class LoginBean implements Serializable {
 	public void init() { this.usuario = new Usuario(); }
 
 	public String efetuaLogin() {
-		System.out.println("fazendo login do usuario " + this.usuario.getEmail());
-
+        log.debug("fazendo login do usuario" + this.usuario.getEmail());
 		Optional<Usuario> usuario = usuarioRepo
 				.findByEmailEqualAndSenhaEqual(this.usuario.getEmail(), this.usuario.getSenha());
 		if(usuario.isPresent()) {

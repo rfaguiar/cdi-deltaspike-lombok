@@ -4,6 +4,7 @@ import br.com.livraria.modelo.Autor;
 import br.com.livraria.repository.AutorRepository;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -11,6 +12,7 @@ import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 
+@Slf4j
 @Model
 public class AutorBean implements Serializable{
 
@@ -39,7 +41,7 @@ public class AutorBean implements Serializable{
 	}
 
 	public String gravar() {
-		System.out.println("Gravando autor " + this.autor.getNome());
+		log.debug("Gravando autor " + this.autor.getNome());
 
 		this.autorRepo.save(autor);
 
@@ -49,7 +51,7 @@ public class AutorBean implements Serializable{
 	}
 
 	public void remover(Autor autor) {
-		System.out.println("Removendo autor " + autor.getNome());
+        log.debug("Removendo autor " + autor.getNome());
         autorRepo.remove(autor);
 	}
 	

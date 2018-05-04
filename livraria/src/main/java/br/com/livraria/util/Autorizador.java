@@ -4,6 +4,7 @@ import br.com.livraria.modelo.Usuario;
 import br.com.livrarialib.jsf.annotation.After;
 import br.com.livrarialib.jsf.annotation.Phase;
 import br.com.livrarialib.jsf.annotation.ScopeMap;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.enterprise.event.Observes;
 import javax.faces.application.NavigationHandler;
@@ -13,6 +14,7 @@ import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.Map;
 
+@Slf4j
 public class Autorizador implements Serializable {
 
 	@Inject
@@ -28,7 +30,7 @@ public class Autorizador implements Serializable {
 	public void autoriza( @Observes @After @Phase(Phase.Phases.RESTORE_VIEW) PhaseEvent event) {
 		String nomePagina = context.getViewRoot().getViewId();
 
-		System.out.println(nomePagina);
+		log.debug(nomePagina);
 
 		if ("/login.xhtml".equals(nomePagina)) {
 			return;

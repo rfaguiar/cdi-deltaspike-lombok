@@ -8,6 +8,7 @@ import br.com.livrarialib.helper.MessageHelper;
 import br.com.livrarialib.jsf.annotation.ViewModel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+@Slf4j
 @ViewModel
 public class LivroBean implements Serializable {
 
@@ -69,11 +71,11 @@ public class LivroBean implements Serializable {
 	public void gravarAutor() {
 		Autor autor = autorRepo.findBy(this.autorId);
 		this.livro.adicionaAutor(autor);
-		System.out.println("Escrito por: " + autor.getNome());
+        log.debug("Escrito por: " + autor.getNome());
 	}
 
 	public void gravar() {
-		System.out.println("Gravando livro " + this.livro.getTitulo());
+        log.debug("Gravando livro " + this.livro.getTitulo());
 
 		if (livro.getAutores() == null || livro.getAutores().isEmpty()) {
             helper.addMessage("autor",
@@ -87,7 +89,7 @@ public class LivroBean implements Serializable {
 	}
 
 	public void remover(Livro livro) {
-		System.out.println("Removendo livro");
+        log.debug("Removendo livro");
         livroRepo.attachAndRemove(livro);
 		this.livros = livroRepo.findAll();
 		this.livro = this.criarLivro();
@@ -98,13 +100,13 @@ public class LivroBean implements Serializable {
 	}
 	
 	public void carregar(Livro livro) {
-		System.out.println("Carregando livro");
+        log.debug("Carregando livro");
 		livro.setAutores(autorRepo.findByLivrosEqual(livro.getId()));
 		this.livro = livro;
 	}
 	
 	public String formAutor() {
-		System.out.println("Chamanda do formulário do Autor.");
+        log.debug("Chamanda do formulário do Autor.");
 		return "autor?faces-redirect=true";
 	}
 
