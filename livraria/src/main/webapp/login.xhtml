@@ -5,33 +5,36 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-	<title></title>
+    <h:head>
+        <title></title>
+    </h:head>
 
-	<ui:composition template="_template.xhtml">
-		<ui:define name="conteudo">
-		
-			<p:messages id="msg-alert" globalOnly="true" />
-		
-			<h:form id="login">
-				<p:fieldset legend="Login">
-					<h:panelGrid columns="3">
+    <h:body>
 
-						<p:outputLabel value="Email:" for="email" />
-						<p:inputText id="email" value="#{loginBean.usuario.email}" required="true">
-							<f:passThroughAttribute name="type" value="email" />
-						</p:inputText>
-						<p:message for="email" id="messageEmail" />
-						
-						<p:outputLabel value="Senha:" for="senha" />
-						<p:password id="senha" value="#{loginBean.usuario.senha}" feedback="true"  required="true" />
-						<p:message for="senha" id="messageSenha" />
+        <ui:composition template="_template.xhtml">
+            <ui:define name="conteudo">
 
-						<p:commandButton id="btnEfetuaLogin" value="Efetue Login" action="#{loginBean.efetuaLogin}" update="@form" process="@form" />
-					</h:panelGrid>
-				</p:fieldset>
-			</h:form>
-		</ui:define>
+                <p:messages id="msg-alert" globalOnly="true" />
 
-	</ui:composition>
+                <h:form id="login">
+                    <p:fieldset legend="Login">
+                        <h:panelGrid columns="3">
 
+                            <p:outputLabel value="Email:" for="email" />
+                            <p:inputText id="email" value="#{loginBean.usuario.email}" required="true">
+                                <f:passThroughAttribute name="type" value="email" />
+                            </p:inputText>
+                            <p:message for="email" id="messageEmail" />
+
+                            <p:outputLabel value="Senha:" for="senha" />
+                            <p:password id="senha" value="#{loginBean.usuario.senha}" feedback="true"  required="true" />
+                            <p:message for="senha" id="messageSenha" />
+
+                            <p:commandButton id="btnEfetuaLogin" value="Efetue Login" action="#{loginBean.efetuaLogin}" update="@form" process="@form" />
+                        </h:panelGrid>
+                    </p:fieldset>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
 </html>
