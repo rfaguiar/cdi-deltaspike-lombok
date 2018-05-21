@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class LoginBeanTest {
 
@@ -61,5 +62,16 @@ public class LoginBeanTest {
 
         assertEquals(mockSessionMap.get("usuarioLogado"), null);
         assertEquals("login?faces-redirect=true", pagina);
+    }
+
+    @Test
+    public void testMetodoDeslogar() {
+        mockSessionMap.put("usuarioLogado", "usuarioLogado");
+
+        String result = loginBean.deslogar();
+
+        assertNull(mockSessionMap.get("usuarioLogado"));
+        assertEquals(result, "login?faces-redirect=true");
+
     }
 }
