@@ -8,6 +8,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Setter
+@Builder
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor

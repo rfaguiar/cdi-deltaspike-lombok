@@ -109,13 +109,11 @@ public class LivroBean implements Serializable {
 	}
 
 	public void comecaComDigitoUm(Object value) {
-
 		String valor = value.toString();
 		if (!valor.startsWith("1")) {
 			throw new ValidatorException(new FacesMessage(
 					"ISBN deveria começar com 1"));
 		}
-
 	}
 
     private Livro criarLivro() {
