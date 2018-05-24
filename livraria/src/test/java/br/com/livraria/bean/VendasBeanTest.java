@@ -1,6 +1,5 @@
 package br.com.livraria.bean;
 
-import br.com.livraria.modelo.Autor;
 import br.com.livraria.modelo.Livro;
 import br.com.livraria.repository.LivroRepository;
 import br.com.livraria.util.ModelsBuilder;
@@ -11,11 +10,9 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.primefaces.model.chart.BarChartModel;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class VendasBeanTest {
 

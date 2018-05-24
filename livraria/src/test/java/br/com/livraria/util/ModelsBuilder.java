@@ -2,6 +2,7 @@ package br.com.livraria.util;
 
 import br.com.livraria.modelo.Autor;
 import br.com.livraria.modelo.Livro;
+import br.com.livraria.modelo.Usuario;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,6 +42,14 @@ public abstract class ModelsBuilder {
                 .nome("autor teste")
                 .email("email@teste.com")
                 .livros(new ArrayList<>())
+                .build();
+    }
+
+    public static Usuario criarUsuarioTeste() {
+        return Usuario.builder()
+                .id(1)
+                .email("rmail@teste.com.br")
+                .senha("senhaTeste")
                 .build();
     }
 }

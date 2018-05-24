@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Setter
+@Builder
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
