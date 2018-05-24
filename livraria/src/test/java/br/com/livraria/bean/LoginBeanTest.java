@@ -48,7 +48,7 @@ public class LoginBeanTest {
         String pagina = loginBean.efetuaLogin();
 
         Mockito.verifyZeroInteractions(mockMessageHelper);
-        assertEquals((Usuario)mockSessionMap.get("usuarioLogado"), usuario.get());
+        assertEquals(mockSessionMap.get("usuarioLogado"), usuario.get());
         assertEquals("livro?faces-redirect=true", pagina);
     }
 
