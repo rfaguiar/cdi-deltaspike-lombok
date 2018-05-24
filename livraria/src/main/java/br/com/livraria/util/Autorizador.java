@@ -11,11 +11,10 @@ import javax.faces.application.NavigationHandler;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
 import javax.inject.Inject;
-import java.io.Serializable;
 import java.util.Map;
 
 @Slf4j
-public class Autorizador implements Serializable {
+public class Autorizador {
 
 	private FacesContext context;
 	private Map<String, Object> sessionMap;
